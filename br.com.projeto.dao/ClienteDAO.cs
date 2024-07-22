@@ -3,6 +3,7 @@ using Controle_de_Vendas.br.com.projeto.model;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,6 +54,36 @@ namespace Controle_de_Vendas.br.com.projeto.dao
             }
         }
 
+        #endregion
+
+        #region Listar Clientes
+        public DataTable listarClientes()
+        {
+            try
+            {
+                // DataTable e o comando sql
+                DataTable dataTable = new DataTable();
+                string sql = "select * from tb_clientes";
+
+                MySqlCommand executacmd = new MySqlCommand(sql, conexao);
+
+                conexao.Open();
+                executacmd.ExecuteNonQuery();
+
+                // preencher os dados da DataTable
+
+                MySqlDataAdapter dapter = new MySqlDataAdapter(executacmd);
+                dapter.Fill(dataTable);
+
+                return dataTable;
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro ao executar " + erro);
+                return null;
+            }
+        }
         #endregion
     }
 }

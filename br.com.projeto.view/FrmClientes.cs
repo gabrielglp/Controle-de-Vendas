@@ -21,7 +21,10 @@ namespace Controle_de_Vendas.br.com.projeto.view
 
         private void FrmClientes_Load(object sender, EventArgs e)
         {
+            tabelaClientes.DefaultCellStyle.ForeColor = Color.Black;
 
+            ClienteDAO dao = new ClienteDAO();
+            tabelaClientes.DataSource = dao.listarClientes();
         }
 
         private void label1_Click(object sender, EventArgs e)
