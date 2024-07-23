@@ -133,5 +133,30 @@ namespace Controle_de_Vendas.br.com.projeto.view
         {
 
         }
+
+        private void btnexcluir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabelaClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // dados selecionados
+
+            txtcodigo.Text = tabelaClientes.CurrentRow.Cells[0].Value.ToString();
+            txtnome.Text = tabelaClientes.CurrentRow.Cells[1].Value.ToString();
+            txtrg.Text = tabelaClientes.CurrentRow.Cells[2].Value.ToString();
+            txtcpf.Text = tabelaClientes.CurrentRow.Cells[3].Value.ToString();
+            txtemail.Text = tabelaClientes.CurrentRow.Cells[4].Value.ToString();
+            txttelefone.Text = tabelaClientes.CurrentRow.Cells[5].Value.ToString();
+            txtcelular.Text = tabelaClientes.CurrentRow.Cells[6].Value.ToString();
+            txtcep.Text = tabelaClientes.CurrentRow.Cells[7].Value.ToString();
+            txtendereco.Text = tabelaClientes.CurrentRow.Cells[8].Value.ToString();
+            txtnumero.Text = tabelaClientes.CurrentRow.Cells[9].Value.ToString();
+            txtcomp.Text = tabelaClientes.CurrentRow.Cells[10].Value.ToString();
+            txtbairro.Text = tabelaClientes.CurrentRow.Cells[11].Value.ToString();
+            txtcidade.Text = tabelaClientes.CurrentRow.Cells[12].Value.ToString();
+            cbuf.Text = tabelaClientes.CurrentRow.Cells[13].Value.ToString();
+        }
     }
 }
