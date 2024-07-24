@@ -521,6 +521,7 @@
             this.btneditar.TabIndex = 5;
             this.btneditar.Text = "Editar";
             this.btneditar.UseVisualStyleBackColor = false;
+            this.btneditar.Click += new System.EventHandler(this.btneditar_Click);
             // 
             // FrmClientes
             // 

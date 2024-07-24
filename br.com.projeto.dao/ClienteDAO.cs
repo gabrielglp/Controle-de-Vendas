@@ -86,6 +86,8 @@ namespace Controle_de_Vendas.br.com.projeto.dao
                 executacmd.ExecuteNonQuery();
 
                 MessageBox.Show("Cliente alterado com sucesso!");
+
+                conexao.Close();
             }
             catch (Exception erro)
             {
@@ -109,6 +111,8 @@ namespace Controle_de_Vendas.br.com.projeto.dao
                 executacmd.ExecuteNonQuery();
 
                 MessageBox.Show("Cliente excluido com sucesso!");
+
+                conexao.Close();
             }
             catch (Exception erro)
             {

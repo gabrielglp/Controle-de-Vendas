@@ -122,6 +122,8 @@ namespace Controle_de_Vendas.br.com.projeto.view
             ClienteDAO dao = new ClienteDAO();
 
             dao.cadastraCliente(objClent);
+
+            tabelaClientes.DataSource = dao.listarClientes();
         }
 
         private void txtrg_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -136,7 +138,13 @@ namespace Controle_de_Vendas.br.com.projeto.view
 
         private void btnexcluir_Click(object sender, EventArgs e)
         {
+            Cliente objCliente = new Cliente();
+            objCliente.codigo = int.Parse(txtcodigo.Text);
 
+            ClienteDAO clienteDAO = new ClienteDAO();
+            clienteDAO.excluirCliente(objCliente);
+
+            tabelaClientes.DataSource = clienteDAO.listarClientes();
         }
 
         private void tabelaClientes_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -157,6 +165,34 @@ namespace Controle_de_Vendas.br.com.projeto.view
             txtbairro.Text = tabelaClientes.CurrentRow.Cells[11].Value.ToString();
             txtcidade.Text = tabelaClientes.CurrentRow.Cells[12].Value.ToString();
             cbuf.Text = tabelaClientes.CurrentRow.Cells[13].Value.ToString();
+
+            tabClientes.SelectedTab = tabPage1;
+        }
+
+        private void btneditar_Click(object sender, EventArgs e)
+        {
+
+            Cliente objClent = new Cliente();
+            objClent.nome = txtnome.Text;
+            objClent.rg = txtrg.Text;
+            objClent.cpf = txtcpf.Text;
+            objClent.email = txtemail.Text;
+            objClent.telefone = txttelefone.Text;
+            objClent.celular = txtcelular.Text;
+            objClent.cep = txtcep.Text;
+            objClent.endereco = txtendereco.Text;
+            objClent.numero = int.Parse(txtnumero.Text);
+            objClent.complemento = txtcomp.Text;
+            objClent.bairro = txtbairro.Text;
+            objClent.cidade = txtcidade.Text;
+            objClent.estado = cbuf.Text;
+
+            objClent.codigo = int.Parse(txtcodigo.Text);
+
+            ClienteDAO dao = new ClienteDAO();
+            dao.alterarCliente(objClent);
+
+            tabelaClientes.DataSource = dao.listarClientes();
         }
     }
 }
