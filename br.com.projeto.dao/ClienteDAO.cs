@@ -126,11 +126,50 @@ namespace Controle_de_Vendas.br.com.projeto.dao
         {
             try
             {
-                // DataTable e o comando sql
                 DataTable dataTable = new DataTable();
                 string sql = "select * from tb_clientes";
 
+                using (MySqlCommand executacmd = new MySqlCommand(sql, conexao))
+                {
+                    if (conexao.State == ConnectionState.Closed)
+                    {
+                        conexao.Open();
+                    }
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(executacmd))
+                    {
+                        adapter.Fill(dataTable);
+                    }
+                }
+
+                return dataTable;
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro ao executar " + erro);
+                return null;
+            }
+            finally
+            {
+                if (conexao.State == ConnectionState.Open)
+                {
+                    conexao.Close();
+                }
+            }
+        }
+        #endregion
+
+        #region Buscar Cliente Por Nome
+        public DataTable BuscarClientePorNome(string nome)
+        {
+            try
+            {
+                // DataTable e o comando sql
+                DataTable dataTable = new DataTable();
+                string sql = "select * from tb_clientes where nome = @nome";
+
                 MySqlCommand executacmd = new MySqlCommand(sql, conexao);
+                executacmd.Parameters.AddWithValue("@nome", nome);
 
                 conexao.Open();
                 executacmd.ExecuteNonQuery();
