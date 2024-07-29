@@ -69,6 +69,7 @@
             this.btnsalvar = new System.Windows.Forms.Button();
             this.btnexcluir = new System.Windows.Forms.Button();
             this.btneditar = new System.Windows.Forms.Button();
+            this.btnbuscar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabClientes.SuspendLayout();
@@ -99,6 +100,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnbuscar);
             this.tabPage1.Controls.Add(this.cbuf);
             this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.txtcidade);
@@ -525,6 +527,18 @@
             this.btneditar.UseVisualStyleBackColor = false;
             this.btneditar.Click += new System.EventHandler(this.btneditar_Click);
             // 
+            // btnbuscar
+            // 
+            this.btnbuscar.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnbuscar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnbuscar.Location = new System.Drawing.Point(357, 105);
+            this.btnbuscar.Name = "btnbuscar";
+            this.btnbuscar.Size = new System.Drawing.Size(68, 27);
+            this.btnbuscar.TabIndex = 6;
+            this.btnbuscar.Text = "Pesquisar";
+            this.btnbuscar.UseVisualStyleBackColor = false;
+            this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click);
+            // 
             // FrmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -596,5 +610,6 @@
         private System.Windows.Forms.Button btnpesquisar;
         private System.Windows.Forms.TextBox txtpesquisa;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnbuscar;
     }
 }
