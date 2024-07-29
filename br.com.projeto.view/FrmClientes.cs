@@ -89,7 +89,7 @@ namespace Controle_de_Vendas.br.com.projeto.view
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            new Helpers().LimparTela(this);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
