@@ -208,5 +208,14 @@ namespace Controle_de_Vendas.br.com.projeto.view
                 tabelaClientes.DataSource = clienteDAO.listarClientes();
             }
         }
+
+        private void txtpesquisa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string nome = "%" + txtpesquisa.Text + "%";
+
+            ClienteDAO clienteDAO = new ClienteDAO();
+
+            tabelaClientes.DataSource = clienteDAO.ListarClientePorNome(nome);
+        }
     }
 }
